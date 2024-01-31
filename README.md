@@ -1,14 +1,27 @@
-# template-reusable-workflows
+# label-workflows
 
-Template repository for Reusable Workflows.
+A collection of label workflows.
 
 ## Description
 
-Template repository for creating Reusable Workflows with GitHub Actions.
+A collection of label workflows implemented as Reusable Workflows for GitHub Actions.
+
+## Usage
+
+### Reusable Workflows
+
+```yaml
+jobs:
+  call:
+    uses: tmknom/label-workflows/.github/workflows/reusable-workflows.yml@v0
+    permissions:
+      contents: read
+      pull-requests: write
+```
 
 ## Release notes
 
-See [Releases](https://github.com/tmknom/template-reusable-workflows/releases).
+See [Releases](https://github.com/tmknom/label-workflows/releases).
 
 ## License
 
