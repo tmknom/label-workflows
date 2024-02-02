@@ -1,0 +1,16 @@
+name: Label Composite Action
+on:
+  workflow_call:
+
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  call:
+    uses: tmknom/label-workflows/.github/workflows/reusable-workflows.yml@v0
+    permissions:
+      contents: read
+      pull-requests: write
