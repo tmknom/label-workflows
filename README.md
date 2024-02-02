@@ -8,6 +8,17 @@ A collection of label workflows implemented as Reusable Workflows for GitHub Act
 
 ## Usage
 
+### Composite Action
+
+```yaml
+jobs:
+  call:
+    uses: tmknom/label-workflows/.github/workflows/composite-action.yml@v0
+    permissions:
+      contents: read
+      pull-requests: write
+```
+
 ### Reusable Workflows
 
 ```yaml
