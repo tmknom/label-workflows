@@ -22,4 +22,4 @@ jobs:
       - name: Cross Labeler
         uses: tmknom/cross-labeler-action@71badeae9778cb9bbba312f9e1c035bb0dff72c0 # v0.2.1
         with:
-          configuration-url: https://raw.githubusercontent.com/tmknom/configurations/main/labeler/conventional-commits.yml
+          configuration-url: https://raw.githubusercontent.com/tmknom/configurations/v0.3.0/labeler/conventional-commits.yml
