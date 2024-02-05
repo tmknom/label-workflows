@@ -1,6 +1,6 @@
 # label-workflows
 
-A collection of label workflows.
+Collection of label workflows.
 
 ## Description
 
