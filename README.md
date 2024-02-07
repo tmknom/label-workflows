@@ -8,6 +8,17 @@ A collection of label workflows implemented as Reusable Workflows for GitHub Act
 
 ## Usage
 
+### Conventional Commits
+
+```yaml
+jobs:
+  call:
+    uses: tmknom/label-workflows/.github/workflows/conventional-commits.yml@v0
+    permissions:
+      contents: read
+      pull-requests: write
+```
+
 ### Composite Action
 
 ```yaml
