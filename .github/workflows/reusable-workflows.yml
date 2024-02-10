@@ -1,6 +1,11 @@
 name: Label Reusable Workflows
 on:
   workflow_call:
+    inputs:
+      pr-number:
+        type: string
+        required: false
+        description: The pull request number(s).
 
 permissions: {}
 
@@ -22,4 +27,5 @@ jobs:
       - name: Cross Labeler
         uses: tmknom/cross-labeler-action@71badeae9778cb9bbba312f9e1c035bb0dff72c0 # v0.2.1
         with:
+          pr-number: ${{ inputs.pr-number }}
           configuration-url: https://raw.githubusercontent.com/tmknom/configurations/v0.3.0/labeler/reusable-workflows.yml
