@@ -25,7 +25,7 @@ jobs:
         uses: tmknom/checkout-action@v1
 
       - name: Cross Labeler
-        uses: tmknom/cross-labeler-action@71badeae9778cb9bbba312f9e1c035bb0dff72c0 # v0.2.1
+        uses: tmknom/cross-labeler-action@6a608dbce1c8ac6105fd78b6e31a7d3f193c48d6 # v0.3.0
         with:
           pr-number: ${{ inputs.pr-number }}
           configuration-url: https://raw.githubusercontent.com/tmknom/configurations/v0.3.0/labeler/reusable-workflows.yml
