@@ -17,56 +17,24 @@ defaults:
     shell: bash
 
 jobs:
-  setup:
-    name: Setup
-    runs-on: ubuntu-latest
-    timeout-minutes: 1
-    outputs:
-      pr-number: "17" # Test pull request for Conventional Commits
-    steps:
-      - run: |
-          : pseudo step
-
   exercise:
     name: Exercise
-    needs: [setup]
     uses: ./.github/workflows/conventional-commits.yml
     with:
-      pr-number: ${{ needs.setup.outputs.pr-number }}
+      pr-number: "17" # Pull request for test
     permissions:
       contents: read
       pull-requests: write
 
   verify:
     name: Verify
-    needs: [setup, exercise]
+    needs: [exercise]
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    permissions:
-      pull-requests: read
     env:
-      PR_NUMBER: ${{ needs.setup.outputs.pr-number }}
-      GITHUB_TOKEN: ${{ github.token }}
+      CONFIGURATION_SHA256: ${{ needs.exercise.outputs.configuration-sha256 }}
     steps:
       - name: Verify
         run: |
           set -x
-          labels="$(gh pr view "${PR_NUMBER}" --json labels --jq '.labels[].name' --repo "${GITHUB_REPOSITORY}")"
-          test "${labels}" = "test"
-
-  teardown:
-    name: Teardown
-    if: ${{ always() }}
-    needs: [setup, exercise, verify]
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    permissions:
-      pull-requests: write
-    env:
-      PR_NUMBER: ${{ needs.setup.outputs.pr-number }}
-      GITHUB_TOKEN: ${{ github.token }}
-    steps:
-      - name: Delete labels
-        run: |
-          set -x
-          gh pr edit "${PR_NUMBER}" --remove-label "test" --repo "${GITHUB_REPOSITORY}" || true
+          test "${CONFIGURATION_SHA256}" = "c23781fa57155600a0ee8b159012354d1d586d1f2857ef73048a8546056d06e8"
