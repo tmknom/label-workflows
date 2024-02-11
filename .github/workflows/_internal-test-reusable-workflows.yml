@@ -8,7 +8,7 @@ on:
       - .github/workflows/_internal-test-reusable-workflows.yml
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: reusable-workflows-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 permissions: {}

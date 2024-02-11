@@ -8,7 +8,7 @@ on:
       - .github/workflows/_internal-test-composite-action.yml
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: composite-action-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 permissions: {}
