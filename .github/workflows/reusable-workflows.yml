@@ -6,6 +6,10 @@ on:
         type: string
         required: false
         description: The pull request number(s).
+    outputs:
+      configuration-sha256:
+        value: ${{ jobs.label.outputs.configuration-sha256 }}
+        description: SHA256 of the configuration file to passing actions/labeler.
 
 permissions: {}
 
@@ -20,11 +24,14 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+    outputs:
+      configuration-sha256: ${{ steps.labeler.outputs.configuration-sha256 }}
     steps:
       - name: Checkout
         uses: tmknom/checkout-action@v1
 
       - name: Cross Labeler
+        id: labeler
         uses: tmknom/cross-labeler-action@b9c9afe4fe80daf0b8e3efce0fe86745ad8565da # v0.4.0
         with:
           pr-number: ${{ inputs.pr-number }}

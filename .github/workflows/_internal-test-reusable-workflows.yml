@@ -1,0 +1,40 @@
+name: Test for Reusable Workflows
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - .github/workflows/reusable-workflows.yml
+      - .github/workflows/_internal-test-reusable-workflows.yml
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  exercise:
+    name: Exercise
+    uses: ./.github/workflows/reusable-workflows.yml
+    with:
+      pr-number: "17" # Pull request for test
+    permissions:
+      contents: read
+      pull-requests: write
+
+  verify:
+    name: Verify
+    needs: [exercise]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      CONFIGURATION_SHA256: ${{ needs.exercise.outputs.configuration-sha256 }}
+    steps:
+      - name: Verify
+        run: |
+          set -x
+          test "${CONFIGURATION_SHA256}" = "8e92d500d43f3a8b28af5efc4de6a5ed1e523e9ed215c3efa168deb0d9cb8c6a"
