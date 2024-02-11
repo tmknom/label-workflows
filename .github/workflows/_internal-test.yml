@@ -1,0 +1,25 @@
+name: Test
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - .github/workflows/_internal-test.yml
+
+permissions: {}
+
+jobs:
+  conventional-commits:
+    uses: ./.github/workflows/_internal-test-conventional-commits.yml
+    permissions:
+      contents: read
+      pull-requests: write
+  composite-action:
+    uses: ./.github/workflows/_internal-test-composite-action.yml
+    permissions:
+      contents: read
+      pull-requests: write
+  reusable-workflows:
+    uses: ./.github/workflows/_internal-test-reusable-workflows.yml
+    permissions:
+      contents: read
+      pull-requests: write
