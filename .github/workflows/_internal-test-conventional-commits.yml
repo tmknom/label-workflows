@@ -8,7 +8,7 @@ on:
       - .github/workflows/_internal-test-conventional-commits.yml
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: conventional-commits-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 permissions: {}
