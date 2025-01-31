@@ -52,9 +52,5 @@ jobs:
 
 See [GitHub Releases][releases].
 
-## License
-
-Apache 2 Licensed. See [LICENSE](LICENSE) for full details.
-
 [labeler]: https://github.com/actions/labeler
 [releases]: https://github.com/tmknom/label-workflows/releases
