@@ -24,6 +24,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      issues: write
     outputs:
       configuration-sha256: ${{ steps.labeler.outputs.configuration-sha256 }}
     steps:
