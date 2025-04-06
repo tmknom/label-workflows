@@ -17,6 +17,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      issues: write
 ```
 
 ### Composite Action
@@ -28,6 +29,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      issues: write
 ```
 
 ### Reusable Workflows
@@ -39,6 +41,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      issues: write
 ```
 
 ## Related projects
