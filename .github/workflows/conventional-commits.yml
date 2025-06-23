@@ -29,7 +29,7 @@ jobs:
       configuration-sha256: ${{ steps.labeler.outputs.configuration-sha256 }}
     steps:
       - name: Checkout
-        uses: tmknom/checkout-action@v1
+        uses: tmknom/secure-checkout-action@v1
 
       - name: Cross Labeler
         id: labeler
