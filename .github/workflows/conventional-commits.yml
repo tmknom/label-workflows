@@ -33,7 +33,7 @@ jobs:
 
       - name: Cross Labeler
         id: labeler
-        uses: tmknom/cross-labeler-action@b9c9afe4fe80daf0b8e3efce0fe86745ad8565da # v0.4.0
+        uses: tmknom/cross-labeler-action@9a7fdc6d637cf29140b456c6d5a7ec965ff0f3b1 # v0.5.0
         with:
           pr-number: ${{ inputs.pr-number }}
           configuration-url: https://raw.githubusercontent.com/tmknom/configurations/v0.3.0/labeler/conventional-commits.yml
