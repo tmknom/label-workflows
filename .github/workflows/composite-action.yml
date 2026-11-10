@@ -19,7 +19,7 @@ defaults:
 
 jobs:
   label:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     timeout-minutes: 5
     permissions:
       contents: read
@@ -36,4 +36,4 @@ jobs:
         uses: tmknom/cross-labeler-action@9a7fdc6d637cf29140b456c6d5a7ec965ff0f3b1 # v0.5.0
         with:
           pr-number: ${{ inputs.pr-number }}
-          configuration-url: https://raw.githubusercontent.com/tmknom/configurations/v0.3.0/labeler/composite-action.yml
+          configuration-url: https://raw.githubusercontent.com/tmknom/configurations/128cc66301fe96e449a1e284bb78d5e2ecfb96f2/labeler/composite-action.yml # v0.6.0

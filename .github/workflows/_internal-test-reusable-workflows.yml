@@ -30,7 +30,7 @@ jobs:
   verify:
     name: Verify
     needs: [exercise]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     timeout-minutes: 5
     env:
       CONFIGURATION_SHA256: ${{ needs.exercise.outputs.configuration-sha256 }}
